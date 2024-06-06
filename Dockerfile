@@ -1,7 +1,7 @@
 FROM maven:3-ibm-semeru-21-jammy as build
 WORKDIR /app
 COPY . .
-RUN mvn clean package
+COPY settings.xml /usr/share/maven/conf/settings.xml
 
 FROM ibm-semeru-runtimes:open-21-jre
 WORKDIR /app
